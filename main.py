@@ -50,7 +50,7 @@ def fit_classifier():
 
 
 def create_classifier(classifier_name, input_shape, nb_classes, output_directory,
-                      verbose=False, build=True):
+                      verbose=True, build=True):
     if classifier_name == 'nne':
         from classifiers import nne
         return nne.Classifier_NNE(output_directory, input_shape,
@@ -80,7 +80,7 @@ def get_xp_val(xp):
 
 
 ############################################### main
-root_dir = '/content/InceptionTime/'
+root_dir = '/content/InceptionTime'
 xps = ['use_bottleneck', 'use_residual', 'nb_filters', 'depth',
        'kernel_size', 'batch_size']
 
@@ -91,7 +91,7 @@ if sys.argv[1] == 'InceptionTime':
     nb_iter_ = 5
 
     datasets_dict = read_all_datasets(root_dir, archive_name)
-
+    print('loaded datasets')
     for iter in range(nb_iter_):
         print('\t\titer', iter)
 
